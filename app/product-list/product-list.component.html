@@ -1,0 +1,74 @@
+<app-navbar></app-navbar>
+
+<div *ngIf="_router.url!='/cart'">
+
+<div class="card-top container-fluid">
+    <div class="container d-flex">
+      <div class="item">
+  
+      </div>
+      <div class="item">
+        <a (click)="filter('')">
+          <img style ="width:62px;margin-top:5px;height:50px;"src="/assets/allProducts.jpg" alt="">
+          <h6>All products</h6>
+        </a>
+        
+      </div>
+      <div class="item">
+        <a (click)="filter('electronics')" >
+          <img style ="width:62px;margin-top:5px;height:50px;"src="/assets/electronics.jpg" alt="">
+          <h6>Electronics</h6>
+        </a>
+        
+      </div>
+      <div class="item">
+        <a (click)="filter('jewelery')">
+          <img style ="width:62px;margin-top:5px;height:50px;"src="/assets/jewelry.jpg" alt="">
+          <h6>Jewelery</h6>
+        </a>
+        
+      </div> <div class="item">
+        <a (click)="filter('fashion')">
+          <img style ="width:62px;margin-top:5px;height:50px;"src="/assets/fashion.jpg" alt="">
+          <h6>Fashion</h6>
+        </a>
+        
+      </div>
+     
+    </div>
+    </div>
+  
+  <div id=background7>
+   
+    <div class="container">
+     <div class="row">
+       <ng-container *ngFor="let item of filterCategory | filter:searchKey">
+
+   <div class="card col-md-3">
+     <img src="{{item.image}}" alt="">
+     <h5 style="white-space: nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100ch;">{{item.title}}</h5>
+     <p style="white-space: nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100ch;">{{item.description}}</p>
+     <p style="white-space: nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100ch;">{{item.category}}</p>
+
+<div *ngIf="_router.url!='/product-list'">
+
+     <button class="btn btn-success" (click)="loginFirst()">Add to cart</button>
+    </div>
+    <form action="/action_page.php" (ngSubmit)="addtoCart(item)">
+
+<div *ngIf="_router.url=='/product-list'">
+
+    <button class="btn btn-success"type="submit">Add to cart</button>
+  </div>    
+
+
+  </form>
+     <p><strong>Price:</strong>Rs {{item.price}}</p>
+   </div>  
+   
+   </ng-container>
+   
+    </div>
+    </div>
+   </div></div>
+   <app-footer></app-footer>

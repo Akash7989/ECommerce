@@ -1,0 +1,26 @@
+
+         <mat-toolbar style="color:white;background-color:green">
+            <span><h1><strong>Flying Cart</strong></h1></span>
+              <div class="form-group"style="margin-left:5px;"><input class="form-control me-2"[(ngModel)]="searchTerm" (keyup)="search($event)" type="search" placeholder="Search" aria-label="Search">
+            </div>
+            <mat-icon style="margin-left:-30px;color:black">search</mat-icon> 
+
+              <span class="example-spacer"></span>
+            
+              <div *ngIf="router.url=='/product-list'"> 
+                             <button class="btn">
+              <mat-icon router="/cart"style="margin-left:5px;background-color:rgba(0, 128, 0, 0.312)"routerLink="/cart">add_shopping_cart</mat-icon>
+                    <div style="font-size:10px;" class="badge bg-danger">{{totalItem}}</div>
+                  </button></div>
+                  <div *ngIf="router.url!='/product-list'">
+                            <button class="btn">
+                                <mat-icon router="/cart"style="margin-left:5px;background-color:rgba(0, 128, 0, 0.312)"(click)="loginFirst()">add_shopping_cart</mat-icon>
+                                      <div style="font-size:10px;" class="badge bg-danger">{{totalItem}}</div>
+                                    </button></div>
+
+              <button mat-flat-button  style="margin-right:5px;background-color:rgba(20, 193, 20, 0.827);"(click)="login()">Login</button>
+              <div *ngIf="router.url!='/registeration-list'">
+              <button mat-flat-button style="background-color:rgba(20, 193, 20, 0.827)" (click)="openDialog()">sign up</button>
+            </div>
+          </mat-toolbar>
+           
